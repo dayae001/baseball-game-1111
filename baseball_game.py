@@ -10,6 +10,8 @@ class BaseballGame:
         self.assert_illegal_value(guessNumber)
         if guessNumber == self.question:
             return BaseballGameResult(True, 3, 0)
+        else:
+            return BaseballGameResult(False, 0, 0)
 
     def assert_illegal_value(self, guessNumber):
         if guessNumber is None:

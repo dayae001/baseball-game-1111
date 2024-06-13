@@ -1,6 +1,5 @@
 from unittest import TestCase
 from baseball_game import BaseballGame
-
 from baseball_game_result import BaseballGameResult
 
 
@@ -30,4 +29,13 @@ class TestBaseballGame(TestCase):
         self.assertIsNotNone(result)
         self.assertTrue(result.get_solved())
         self.assertEqual(3, result.get_strikes())
+        self.assertEqual(0, result.get_balls())
+
+    def test_return_solve_result_if_matched_number2(self):
+        self.game.question = "123"
+        result: BaseballGameResult = self.game.guess("456")
+
+        self.assertIsNotNone(result)
+        self.assertFalse(result.get_solved())
+        self.assertEqual(0, result.get_strikes())
         self.assertEqual(0, result.get_balls())
